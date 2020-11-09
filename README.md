@@ -1,6 +1,8 @@
 # Host LWC OSS Apps along with Source Code on GitHub Pages
 
-Sample LWC OSS app along with source code that has been hosted on GitHub pages. The build output is stored in the [`docs`](./docs) folder.
+Sample LWC OSS app along with source code that has been hosted on GitHub pages. 
+
+The build output is stored in the [`docs`](./docs) folder. GitHub pages has been configured to use the `docs` folder on the `main` branch as the source of the site content. This approach allows us to open-source the source code of our app, and also deploy the build output of our app to GitHub pages from a single repo.
 
 ## Steps Explained
 
@@ -8,7 +10,7 @@ Sample LWC OSS app along with source code that has been hosted on GitHub pages. 
 
 ## Changed files
 
-- [`lwc-config.json`](./lwc-config.json) to update the build directory and resources
+- [`lwc-services.config.js`](./lwc-services.config.js) to update the build directory and resources
 - [`scripts/server.js`](./scripts/server.js) to update the static content directory
 
 
