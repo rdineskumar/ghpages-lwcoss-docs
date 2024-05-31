@@ -42,9 +42,9 @@
                         indexOf: b,
                         join: $,
                         map: C,
-                        push: k,
-                        reduce: M,
-                        reverse: T,
+                        push: T,
+                        reduce: k,
+                        reverse: M,
                         slice: E,
                         splice: S,
                         unshift: x,
@@ -287,7 +287,7 @@
                             'Internal Error: addCallbackToNextTick() can only accept a function callback'
                         );
                     0 === le.length && Promise.resolve().then(he),
-                        k.call(le, e);
+                        T.call(le, e);
                 }
                 const pe = /;(?![^(]*\))/g,
                     me = /:(.+)/,
@@ -350,7 +350,7 @@
                         this.callback.call(void 0, this);
                     }
                     link(e) {
-                        k.call(e, this), k.call(this.listeners, e);
+                        T.call(e, this), T.call(this.listeners, e);
                     }
                 }
                 function $e(e, t) {
@@ -359,17 +359,17 @@
                 function Ce(e, t) {
                     we(e.component, t);
                 }
-                function ke(e) {
+                function Te(e) {
                     return `<${H.call(e.tagName)}>`;
                 }
-                function Me(e, t, n) {
+                function ke(e, t, n) {
                     let r = `[LWC ${e}]: ${t}`;
                     D(n) ||
                         (r = `${r}\n${(function (e) {
                             const t = [];
                             let n = '';
                             for (; !P(e.owner); )
-                                k.call(t, n + ke(e)),
+                                T.call(t, n + Te(e)),
                                     (e = e.owner),
                                     (n += '\t');
                             return $.call(t, '\n');
@@ -380,11 +380,11 @@
                         console[e](t);
                     }
                 }
-                function Te(e, t) {
-                    Me('error', e, t);
+                function Me(e, t) {
+                    ke('error', e, t);
                 }
                 function Ee(e, t) {
-                    Me('warn', e, t);
+                    ke('warn', e, t);
                 }
                 function Se(e) {
                     const {
@@ -743,7 +743,7 @@
                     lt = !1;
                 }
                 function ut(e, t) {
-                    return Te(
+                    return Me(
                         `The \`${e}\` ${t} is available only on elements that use the \`lwc:dom="manual"\` directive.`
                     );
                 }
@@ -783,10 +783,10 @@
                         getOwnPropertyDescriptor: bt,
                         getOwnPropertyNames: $t,
                         getOwnPropertySymbols: Ct,
-                        preventExtensions: kt,
-                        hasOwnProperty: Mt
+                        preventExtensions: Tt,
+                        hasOwnProperty: kt
                     } = Object,
-                    { push: Tt, concat: Et } = Array.prototype,
+                    { push: Mt, concat: Et } = Array.prototype,
                     St = {}.toString;
                 function xt(e) {
                     return void 0 === e;
@@ -804,7 +804,7 @@
                         (this.originalTarget = t), (this.membrane = e);
                     }
                     wrapDescriptor(e) {
-                        if (Mt.call(e, 'value'))
+                        if (kt.call(e, 'value'))
                             e.value = this.wrapValue(e.value);
                         else {
                             const { set: t, get: n } = e;
@@ -829,7 +829,7 @@
                         const {
                             membrane: { tagPropertyKey: n }
                         } = this;
-                        xt(n) || Mt.call(e, n) || vt(e, n, yt(null)), kt(e);
+                        xt(n) || kt.call(e, n) || vt(e, n, yt(null)), Tt(e);
                     }
                     apply(e, t, n) {}
                     construct(e, t, n) {}
@@ -853,8 +853,8 @@
                                 originalTarget: t,
                                 membrane: { tagPropertyKey: n }
                             } = this,
-                            r = xt(n) || Mt.call(t, n) ? [] : [n];
-                        return Tt.apply(r, $t(t)), Tt.apply(r, Ct(t)), r;
+                            r = xt(n) || kt.call(t, n) ? [] : [n];
+                        return Mt.apply(r, $t(t)), Mt.apply(r, Ct(t)), r;
                     }
                     isExtensible(e) {
                         const { originalTarget: t } = this;
@@ -920,7 +920,7 @@
                         return Dt.set(e, n), Ft.set(n, e), n;
                     }
                     unwrapDescriptor(e) {
-                        if (Mt.call(e, 'value')) e.value = It(e.value);
+                        if (kt.call(e, 'value')) e.value = It(e.value);
                         else {
                             const { set: t, get: n } = e;
                             xt(n) || (e.get = this.unwrapGetter(n)),
@@ -981,7 +981,7 @@
                     preventExtensions(e) {
                         if (wt(e)) {
                             const { originalTarget: t } = this;
-                            if ((kt(t), wt(t))) return !1;
+                            if ((Tt(t), wt(t))) return !1;
                             this.lockShadowTarget(e);
                         }
                         return !0;
@@ -992,7 +992,7 @@
                             membrane: { valueMutated: o, tagPropertyKey: i }
                         } = this;
                         return (
-                            (t === i && !Mt.call(r, t)) ||
+                            (t === i && !kt.call(r, t)) ||
                             (vt(r, t, this.unwrapDescriptor(n)),
                             !1 === n.configurable &&
                                 this.copyDescriptorIntoShadowTarget(e, t),
@@ -1108,7 +1108,7 @@
                                 ? n.g
                                 : {},
                         t = e.devtoolsFormatters || [];
-                    Tt.call(t, Vt), (e.devtoolsFormatters = t);
+                    Mt.call(t, Vt), (e.devtoolsFormatters = t);
                 })();
                 const Kt = Object.prototype;
                 function Gt(e) {
@@ -1224,7 +1224,7 @@
                         get() {
                             const t = mo(this);
                             if (!Ur(t)) return Ce(t, e), n.call(t.elm);
-                            Te(
+                            Me(
                                 `The value of property \`${e}\` can't be read from the constructor because the owner component hasn't set the value yet. Instead, use the constructor to set a default value for the property.`,
                                 t
                             );
@@ -1243,7 +1243,7 @@
                                     ),
                                     r.isFalse(
                                         Ur(n),
-                                        `Failed to construct '${ke(
+                                        `Failed to construct '${Te(
                                             n
                                         )}': The result must not have attributes.`
                                     ),
@@ -1339,7 +1339,7 @@
                                                     value(e, n, r) {
                                                         return (
                                                             D(r) ||
-                                                                Te(
+                                                                Me(
                                                                     'The `addEventListener` method on ShadowRoot does not support any options.',
                                                                     go(this)
                                                                 ),
@@ -1395,7 +1395,7 @@
                                             value(e, n, r) {
                                                 return (
                                                     D(r) ||
-                                                        Te(
+                                                        Me(
                                                             'The `addEventListener` method in `LightningElement` does not support any options.',
                                                             go(this)
                                                         ),
@@ -1424,8 +1424,8 @@
                 };
                 function en(e, t) {
                     Ur(e) &&
-                        Te(
-                            `this.${t} should not be called during the construction of the custom element for ${ke(
+                        Me(
+                            `this.${t} should not be called during the construction of the custom element for ${Te(
                                 e
                             )} because the element is not yet in the DOM or has no children yet.`
                         );
@@ -1520,7 +1520,7 @@
                             } = n;
                         r.isFalse(
                             Ur(n),
-                            `Failed to construct '${ke(
+                            `Failed to construct '${Te(
                                 n
                             )}': The result must not have attributes.`
                         ),
@@ -1536,7 +1536,7 @@
                             } = o;
                         r.isFalse(
                             Ur(o),
-                            `Failed to construct '${ke(
+                            `Failed to construct '${Te(
                                 o
                             )}': The result must not have attributes.`
                         ),
@@ -1577,7 +1577,7 @@
                         const e = mo(this);
                         return (
                             0 === e.renderMode &&
-                                Te(
+                                Me(
                                     '`this.template` returns null for light DOM components. Since there is no shadow, the rendered content can be accessed via `this` itself. e.g. instead of `this.template.querySelector`, use `this.querySelector`.'
                                 ),
                             e.cmpRoot
@@ -1684,7 +1684,7 @@
                         get() {
                             const t = mo(this);
                             if (!Ur(t)) return Ce(t, e), t.cmpProps[e];
-                            Te(
+                            Me(
                                 `Can’t read the value of property \`${K(
                                     e
                                 )}\` from the constructor because the owner component hasn’t set the value yet. Instead, use the constructor to set a default value for the property.`,
@@ -1735,8 +1735,8 @@
                                             if (!P(e) && _(e)) {
                                                 const { type: t } = e;
                                                 /^[a-z][a-z0-9_]*$/.test(t) ||
-                                                    Te(
-                                                        `Invalid event type "${t}" dispatched in element ${ke(
+                                                    Me(
+                                                        `Invalid event type "${t}" dispatched in element ${Te(
                                                             n
                                                         )}. Event name must start with a lowercase letter and followed only lowercase letters, numbers, and underscores`,
                                                         n
@@ -1765,12 +1765,12 @@
                                                           r.push(
                                                               `Instead access it via \`this.getAttribute("${n}")\`.`
                                                           ),
-                                                    Te(r.join('\n'), mo(this));
+                                                    Me(r.join('\n'), mo(this));
                                             },
                                             set() {
                                                 const { readOnly: e } = Ae[t];
                                                 e &&
-                                                    Te(
+                                                    Me(
                                                         `The global HTML property \`${t}\` is read-only.`,
                                                         mo(this)
                                                     );
@@ -1895,7 +1895,7 @@
                     if (!D(n)) {
                         const e = fn(n),
                             o = `Invalid observed ${t} field. Found a duplicate ${e} with the same name.`;
-                        'accessor' === e ? Te(o) : r.fail(o);
+                        'accessor' === e ? Me(o) : r.fail(o);
                     }
                 }
                 function mn(e, t, n) {
@@ -1922,7 +1922,7 @@
                     if (!D(n)) {
                         const e = fn(n),
                             o = `Invalid @api ${t} field. Found a duplicate ${e} with the same name.`;
-                        'accessor' === e ? Te(o) : r.fail(o);
+                        'accessor' === e ? Me(o) : r.fail(o);
                     }
                 }
                 function wn(e, t, n) {
@@ -1945,17 +1945,17 @@
                         observedFields: de
                     },
                     Cn = new Set();
-                function kn() {
+                function Tn() {
                     return [];
                 }
-                Cn.add(kn);
-                const Mn = i(null),
-                    Tn = i(null);
+                Cn.add(Tn);
+                const kn = i(null),
+                    Mn = i(null);
                 function En(e) {
-                    let t = Mn[e];
+                    let t = kn[e];
                     return (
                         D(t) &&
-                            (t = Mn[e] =
+                            (t = kn[e] =
                                 function () {
                                     const t = mo(this),
                                         { getHook: n } = t;
@@ -1965,10 +1965,10 @@
                     );
                 }
                 function Sn(e) {
-                    let t = Tn[e];
+                    let t = Mn[e];
                     return (
                         D(t) &&
-                            (t = Tn[e] =
+                            (t = Mn[e] =
                                 function (t) {
                                     const n = mo(this),
                                         { setHook: r } = n;
@@ -2144,7 +2144,7 @@
                                 errorCallback: $,
                                 render: C
                             } = y;
-                            const k = (function (e) {
+                            const T = (function (e) {
                                     let t = u(e);
                                     if (P(t))
                                         throw new ReferenceError(
@@ -2160,26 +2160,26 @@
                                     }
                                     return t;
                                 })(e),
-                                M = k !== Jt ? Kn(k) : Gn,
-                                T = An(M.bridge, p(c), p(h)),
-                                E = o(i(null), M.props, c),
-                                S = o(i(null), M.propsConfig, d),
-                                x = o(i(null), M.methods, h),
-                                L = o(i(null), M.wire, f, m);
-                            (v = v || M.connectedCallback),
-                                (w = w || M.disconnectedCallback),
-                                (b = b || M.renderedCallback),
-                                ($ = $ || M.errorCallback),
-                                (C = C || M.render);
-                            let A = M.shadowSupportMode;
+                                k = T !== Jt ? Kn(T) : Gn,
+                                M = An(k.bridge, p(c), p(h)),
+                                E = o(i(null), k.props, c),
+                                S = o(i(null), k.propsConfig, d),
+                                x = o(i(null), k.methods, h),
+                                L = o(i(null), k.wire, f, m);
+                            (v = v || k.connectedCallback),
+                                (w = w || k.disconnectedCallback),
+                                (b = b || k.renderedCallback),
+                                ($ = $ || k.errorCallback),
+                                (C = C || k.render);
+                            let A = k.shadowSupportMode;
                             D(t) || (A = t);
-                            let N = M.renderMode;
+                            let N = k.renderMode;
                             D(n) || (N = 'light' === n ? 0 : 1);
                             const I =
                                     (function (e) {
                                         return Zr.get(e);
-                                    })(e) || M.template,
-                                O = e.name || M.name;
+                                    })(e) || k.template,
+                                O = e.name || k.name;
                             a(y, g);
                             const H = {
                                 ctor: e,
@@ -2188,7 +2188,7 @@
                                 props: E,
                                 propsConfig: S,
                                 methods: x,
-                                bridge: T,
+                                bridge: M,
                                 template: I,
                                 renderMode: N,
                                 shadowSupportMode: A,
@@ -2214,7 +2214,7 @@
                     shadowSupportMode: 'reset',
                     wire: de,
                     bridge: Nn,
-                    template: kn,
+                    template: Tn,
                     render: Jt.prototype.render
                 };
                 function Un(e, t) {
@@ -2274,7 +2274,7 @@
                                     i = (o.attrs && o.attrs.slot) || '',
                                     a = (r[i] = r[i] || []);
                                 D(n.key) || (n.key = `@${i}:${n.key}`),
-                                    k.call(a, n);
+                                    T.call(a, n);
                             }
                             if (j(e.isDirty)) {
                                 const t = p(n);
@@ -2314,7 +2314,7 @@
                     for (const [i, a] of Object.entries(n)) {
                         const n = r.getAttribute(t, i);
                         String(a) !== n &&
-                            (Te(
+                            (Me(
                                 `Mismatch hydrating element <${t.tagName.toLowerCase()}>: attribute "${i}" has different values, expected "${a}" but found "${n}"`,
                                 e.owner
                             ),
@@ -2340,7 +2340,7 @@
                     } else (a = !1), (i = n);
                     return (
                         a ||
-                            Te(
+                            Me(
                                 `Mismatch hydrating element <${t.tagName.toLowerCase()}>: attribute "class" has different values, expected "${i}" but found "${
                                     t.className
                                 }"`,
@@ -2388,7 +2388,7 @@
                     } else (s = !1), (a = n);
                     return (
                         s ||
-                            Te(
+                            Me(
                                 `Mismatch hydrating element <${t.tagName.toLowerCase()}>: attribute "style" has different values, expected "${a}" but found "${i}".`,
                                 e.owner
                             ),
@@ -2405,7 +2405,7 @@
                     {
                         const r = v.call(t, (e) => !!e);
                         e.length !== r.length &&
-                            (Te(
+                            (Me(
                                 `Hydration mismatch: incorrect number of rendered nodes, expected ${r.length} but found ${e.length}.`,
                                 n
                             ),
@@ -2421,7 +2421,7 @@
                                     ? void 0
                                     : r.toLowerCase()) !==
                                     t.tagName.toLowerCase() &&
-                                    (Te(
+                                    (Me(
                                         `Hydration mismatch: expecting element with tag "${
                                             null === (o = s.sel) || void 0 === o
                                                 ? void 0
@@ -2471,7 +2471,7 @@
                         hydrate: (e, t) => {
                             var n;
                             t.nodeType !== Node.TEXT_NODE &&
-                                (Te(
+                                (Me(
                                     'Hydration mismatch: incorrect node type received',
                                     e.owner
                                 ),
@@ -2504,7 +2504,7 @@
                         hydrate: (e, t) => {
                             var n;
                             t.nodeType !== Node.COMMENT_NODE &&
-                                (Te(
+                                (Me(
                                     'Hydration mismatch: incorrect node type received',
                                     e.owner
                                 ),
@@ -2923,7 +2923,7 @@
                         ),
                         t.style &&
                             !W(t.style) &&
-                            Te(
+                            Me(
                                 `Invalid 'style' attribute passed to <${e}> is ignored. This attribute must be a string value.`,
                                 o
                             ),
@@ -2977,7 +2977,7 @@
                         ),
                         n.style &&
                             !W(n.style) &&
-                            Te(
+                            Me(
                                 `Invalid 'style' attribute passed to <${e}> is ignored. This attribute must be a string value.`,
                                 i
                             ),
@@ -3010,7 +3010,7 @@
                         };
                     return (
                         (function (e) {
-                            k.call(_r().velements, e);
+                            T.call(_r().velements, e);
                         })(s),
                         s
                     );
@@ -3055,7 +3055,7 @@
                         const o = _r();
                         if (D(e) || null === e)
                             return (
-                                Te(
+                                Me(
                                     `Invalid template iteration for value "${K(
                                         e
                                     )}" in ${o}. It must be an Array or an iterable Object.`,
@@ -3082,7 +3082,7 @@
                         for (s = i(null); !1 === h; ) {
                             (c = a.next()), (h = c.done);
                             const e = t(u, d, 0 === d, !0 === h);
-                            y(e) ? k.apply(n, e) : k.call(n, e);
+                            y(e) ? T.apply(n, e) : T.call(n, e);
                             {
                                 const t = y(e) ? e : [e];
                                 L.call(t, (e) => {
@@ -3100,7 +3100,7 @@
                             }
                             (d += 1), (u = c.value);
                         }
-                        return D(l) || Te(l, o), n;
+                        return D(l) || Me(l, o), n;
                     },
                     f: function (e) {
                         r.isTrue(
@@ -3112,7 +3112,7 @@
                         wr(n);
                         for (let r = 0; r < t; r += 1) {
                             const t = e[r];
-                            y(t) ? k.apply(n, t) : k.call(n, t);
+                            y(t) ? T.apply(n, t) : T.call(n, t);
                         }
                         return n;
                     },
@@ -3197,7 +3197,7 @@
                         {
                             const n = _r();
                             t &&
-                                Te(
+                                Me(
                                     `Invalid tabindex value \`${K(
                                         e
                                     )}\` in template for ${n}. This attribute must be set to 0 or -1.`,
@@ -3210,7 +3210,7 @@
                         const t = _r();
                         if (D(e) || '' === e)
                             return (
-                                Te(
+                                Me(
                                     `Invalid id value "${e}". The id attribute must contain a non-empty string.`,
                                     t
                                 ),
@@ -3227,7 +3227,7 @@
                         if (D(e) || '' === e)
                             return (
                                 D(e) &&
-                                    Te(
+                                    Me(
                                         'Undefined url value for "href" or "xlink:href" attribute. Expected a non-empty string.',
                                         t
                                     ),
@@ -3252,7 +3252,7 @@
                     const r = [];
                     for (let o = 0; o < e.length; o++) {
                         let i = e[o];
-                        if (y(i)) k.apply(r, Cr(i, t, n));
+                        if (y(i)) T.apply(r, Cr(i, t, n));
                         else {
                             i = Wn(i);
                             const e = i[Q],
@@ -3265,17 +3265,17 @@
                                     (1 === n.shadowMode && 1 === n.renderMode)
                                         ? t
                                         : void 0;
-                            k.call(r, i(o, a));
+                            T.call(r, i(o, a));
                         }
                     }
                     return r;
                 }
-                function kr(e, t) {
+                function Tr(e, t) {
                     const { stylesheets: n, stylesheetToken: r } = t;
                     let o = [];
                     return D(n) || 0 === n.length || (o = Cr(n, r, e)), o;
                 }
-                const Mr = [
+                const kr = [
                         'constructor',
                         'render',
                         'patch',
@@ -3286,18 +3286,18 @@
                         'lwc-hydrate',
                         'lwc-rehydrate'
                     ],
-                    Tr =
+                    Mr =
                         'undefined' != typeof performance &&
                         'function' == typeof performance.mark &&
                         'function' == typeof performance.clearMarks &&
                         'function' == typeof performance.measure &&
                         'function' == typeof performance.clearMeasures,
-                    Er = Tr
+                    Er = Mr
                         ? (e) => {
                               performance.mark(e);
                           }
                         : B,
-                    Sr = Tr
+                    Sr = Mr
                         ? (e, t) => {
                               performance.measure(e, t),
                                   performance.clearMarks(t),
@@ -3305,10 +3305,10 @@
                           }
                         : B;
                 function xr(e) {
-                    return Mr[e];
+                    return kr[e];
                 }
                 function Lr(e, t) {
-                    return `${ke(t)} - ${xr(e)}`;
+                    return `${Te(t)} - ${xr(e)}`;
                 }
                 function Ar(e, t) {
                     return `${Lr(e, t)} - ${t.idx}`;
@@ -3404,23 +3404,23 @@
                                     if (t !== l) {
                                         if (
                                             ((function (e, t) {
-                                                e !== kn &&
+                                                e !== Tn &&
                                                     (0 === t.renderMode
                                                         ? r.isTrue(
                                                               'light' ===
                                                                   e.renderMode,
-                                                              `Light DOM components can't render shadow DOM templates. Add an 'lwc:render-mode="light"' directive to the root template tag of ${ke(
+                                                              `Light DOM components can't render shadow DOM templates. Add an 'lwc:render-mode="light"' directive to the root template tag of ${Te(
                                                                   t
                                                               )}.`
                                                           )
                                                         : r.isTrue(
                                                               D(e.renderMode),
-                                                              `Shadow DOM components template can't render light DOM templates. Either remove the 'lwc:render-mode' directive from ${ke(
+                                                              `Shadow DOM components template can't render light DOM templates. Either remove the 'lwc:render-mode' directive from ${Te(
                                                                   t
                                                               )} or set it to 'lwc:render-mode="shadow"`
                                                           ));
                                             })(t, e),
-                                            P(l) || To(e),
+                                            P(l) || Mo(e),
                                             (c = t),
                                             !Cn.has(c))
                                         )
@@ -3494,7 +3494,7 @@
                                                     (r.hasTokenInClass = h),
                                                     (r.hasTokenInAttribute = f);
                                             })(e, t);
-                                        const n = kr(e, t);
+                                        const n = Tr(e, t);
                                         o.styleVNode =
                                             0 === n.length
                                                 ? null
@@ -3595,7 +3595,7 @@
                                             ),
                                                 '' !== t &&
                                                     -1 === b.call(o, t) &&
-                                                    Te(
+                                                    Me(
                                                         `Ignoring unknown provided slot name "${t}" in ${e}. Check for a typo on the slot attribute.`,
                                                         e
                                                     );
@@ -3658,7 +3658,7 @@
                         const n = (function (e) {
                             const t = [];
                             let n = e;
-                            for (; !P(n); ) k.call(t, ke(n)), (n = n.owner);
+                            for (; !P(n); ) T.call(t, Te(n)), (n = n.owner);
                             return t.reverse().join('\n\t');
                         })(e);
                         s(t, 'wcStack', { get: () => n });
@@ -3828,10 +3828,10 @@
                             const { disconnectedCallback: n } = e.def;
                             D(n) || (Hr(5, e), qr(e, n), Dr(5, e));
                         })(e),
-                            ko(e),
+                            To(e),
                             (function (e) {
                                 const { aChildren: t } = e;
-                                Mo(t);
+                                ko(t);
                             })(e);
                     }
                     !(function (e) {
@@ -3970,13 +3970,13 @@
                                                 resetConfigWatcher: a
                                             } = Oo(e, t, s),
                                             l = s.dynamic.length > 0;
-                                        k.call(o, () => {
+                                        T.call(o, () => {
                                             n.connect(),
                                                 se.ENABLE_WIRE_SYNC_EMIT || !l
                                                     ? r()
                                                     : Promise.resolve().then(r);
                                         }),
-                                            k.call(i, () => {
+                                            T.call(i, () => {
                                                 n.disconnect(), a();
                                             });
                                     }
@@ -4079,7 +4079,7 @@
                 function Co(e) {
                     return d(e.def.wire).length > 0;
                 }
-                function ko(e) {
+                function To(e) {
                     const { velements: t } = e;
                     for (let e = t.length - 1; e >= 0; e -= 1) {
                         const { elm: n } = t[e];
@@ -4089,30 +4089,30 @@
                         }
                     }
                 }
-                function Mo(e) {
+                function ko(e) {
                     for (let t = 0, n = e.length; t < n; t += 1) {
                         const n = e[t];
                         P(n) ||
                             !y(n.children) ||
                             D(n.elm) ||
-                            (D(n.ctor) ? Mo(n.children) : uo(mo(n.elm)));
+                            (D(n.ctor) ? ko(n.children) : uo(mo(n.elm)));
                     }
                 }
-                function To(e) {
+                function Mo(e) {
                     const { children: t, renderer: n } = e,
                         r = xo(e);
                     for (let e = 0, o = t.length; e < o; e++) {
                         const o = t[e];
                         P(o) || D(o.elm) || n.remove(o.elm, r);
                     }
-                    (e.children = ue), ko(e), (e.velements = ue);
+                    (e.children = ue), To(e), (e.velements = ue);
                 }
                 function Eo(e) {
                     F(e.renderer.ssr) ||
                         F(e.isScheduled) ||
                         ((e.isScheduled = !0),
                         0 === wo.length && fe(bo),
-                        k.call(wo, e));
+                        T.call(wo, e));
                 }
                 function So(e, t, n, r, o) {
                     let i;
@@ -4134,7 +4134,7 @@
                                       }
                                   })(t);
                             if (D(n)) throw i;
-                            To(e),
+                            Mo(e),
                                 Hr(6, e),
                                 qr(n, n.def.errorCallback, [i, i.wcStack]),
                                 Dr(6, e);
@@ -4245,13 +4245,13 @@
                                         wiredDisconnecting: l
                                     }
                                 } = e;
-                                k.call(s, () => {
+                                T.call(s, () => {
                                     const e = new Io(o, {
                                         setNewContext(e) {
                                             n(e);
                                         },
                                         setDisconnectedCallback(e) {
-                                            k.call(l, e);
+                                            T.call(l, e);
                                         }
                                     });
                                     a.dispatchEvent(i, e);
@@ -4783,6 +4783,7 @@
                 (i.stylesheetToken = 'my-greeting_greeting');
             const s = [
                     'Hello',
+                    'வணக்கம்',
                     'Bonjour',
                     '你好',
                     'Hola',
@@ -4835,7 +4836,7 @@
             });
             const u = (0, e.RM)(d, { tmpl: a });
             function h(e, t, n, r) {
-                const { c: o, h: i, t: a } = e;
+                const { c: o, h: i } = e;
                 return [
                     i(
                         'div',
@@ -4849,41 +4850,17 @@
                             )
                         ]
                     ),
-                    i('div', { classMap: { center: !0 }, key: 2 }, [
-                        i(
-                            'img',
-                            { attrs: { src: './resources/lwc.png' }, key: 3 },
-                            []
-                        )
-                    ]),
-                    i('div', { classMap: { center: !0 }, key: 4 }, [
-                        i('div', { classMap: { container: !0 }, key: 5 }, [
-                            i('p', { classMap: { info: !0 }, key: 6 }, [
-                                a('Edit '),
-                                i(
-                                    'strong',
-                                    { classMap: { code: !0 }, key: 7 },
-                                    [a('src/modules/my/app/app.html')]
-                                ),
-                                i('br', { key: 8 }, []),
-                                a('and save for live reload.')
-                            ])
-                        ]),
-                        i('div', { key: 9 }, [
-                            i(
-                                'a',
-                                {
-                                    classMap: { link: !0 },
-                                    attrs: {
-                                        href: 'https://lwc.dev',
-                                        target: '_blank'
-                                    },
-                                    key: 10
-                                },
-                                [a('Learn LWC')]
-                            )
-                        ])
-                    ])
+                    i(
+                        'iframe',
+                        {
+                            attrs: {
+                                src: 'https://morganstanley-f-dev-ed.develop.my.site.com',
+                                title: 'description'
+                            },
+                            key: 2
+                        },
+                        []
+                    )
                 ];
             }
             const f = (0, e.Pv)(h);
