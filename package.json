@@ -2,18 +2,21 @@
     "name": "my-app",
     "description": "My amazing LWC app",
     "version": "0.0.1",
-    "author": "adityanaag3",
-    "bugs": "https://github.com/adityanaag3/my-app/issues",
+    "author": "rdineskumar",
+    "bugs": "https://github.com/rdineskumar/my-app/issues",
     "dependencies": {
+        "chokidar": "^3.6.0",
         "compression": "^1.7.4",
         "express": "^4.17.1",
-        "helmet": "^4.1.1"
+        "helmet": "^4.1.1",
+        "querystring": "^0.2.1"
     },
     "devDependencies": {
+        "error-overlay-webpack-plugin": "^1.1.1",
         "eslint": "^7.11.0",
         "husky": "^4.3.0",
         "lint-staged": "^10.4.0",
-        "lwc-services": "^2.2.2",
+        "lwc-services": "^3.2.2",
         "prettier": "^2.1.2"
     },
     "engines": {
@@ -21,7 +24,7 @@
         "npm": ">=6.4.1",
         "yarn": ">=1.9.4"
     },
-    "homepage": "https://github.com/adityanaag3/my-app",
+    "homepage": "https://rdineskumar.github.io/ghpages-lwcoss-docs",
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
@@ -39,7 +42,7 @@
             "eslint"
         ]
     },
-    "repository": "adityanaag3/my-app",
+    "repository": "rdineskumar/my-app",
     "scripts": {
         "build": "lwc-services build -m production",
         "build:development": "lwc-services build",
