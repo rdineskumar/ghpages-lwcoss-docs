@@ -4851,15 +4851,26 @@
                         ]
                     ),
                     i(
-                        'iframe',
-                        {
-                            attrs: {
-                                src: 'https://morganstanley-f-dev-ed.develop.my.site.com',
-                                title: 'description'
-                            },
-                            key: 2
-                        },
-                        []
+                        'div',
+                        { styleDecls: [['height', '900px', !0]], key: 2 },
+                        [
+                            i(
+                                'iframe',
+                                {
+                                    styleDecls: [
+                                        ['overflow', 'hidden', !1],
+                                        ['height', '900px', !1],
+                                        ['width', '100%', !1]
+                                    ],
+                                    attrs: {
+                                        src: 'https://morganstanley-f-dev-ed.develop.my.site.com',
+                                        frameborder: '0'
+                                    },
+                                    key: 3
+                                },
+                                []
+                            )
+                        ]
                     )
                 ];
             }
